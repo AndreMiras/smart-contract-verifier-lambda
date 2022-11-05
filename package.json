@@ -1,0 +1,32 @@
+{
+  "name": "smart-contract-verifier-lambda",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreMiras/smart-contract-verifier-lambda.git"
+  },
+  "author": "Andre Miras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndreMiras/smart-contract-verifier-lambda/issues"
+  },
+  "homepage": "https://github.com/AndreMiras/smart-contract-verifier-lambda",
+  "scripts": {
+    "lint:prettier": "prettier --check index.js *.md",
+    "format:prettier": "prettier --write index.js *.md",
+    "lint:eslint": "eslint index.js",
+    "format:eslint": "eslint --fix index.js",
+    "lint": "yarn lint:prettier && yarn lint:eslint",
+    "format": "yarn format:prettier && yarn format:eslint"
+  },
+  "dependencies": {
+    "smart-contract-verifier": "^0.0.7",
+    "web3": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1"
+  }
+}
