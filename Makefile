@@ -29,5 +29,8 @@ devops/terraform/apply:
 	terraform -chdir=terraform apply -auto-approve \
 	-var='environment_variables={"RPC_PROVIDER":"$(RPC_PROVIDER)"}'
 
+devops/terraform/output/lambda_function_url:
+	terraform -chdir=terraform output lambda_function_url
+
 devops/terraform/destroy:
 	terraform -chdir=terraform destroy -auto-approve

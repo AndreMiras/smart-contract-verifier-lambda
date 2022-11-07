@@ -20,6 +20,8 @@ module "lambda_function" {
     allow_credentials = true
     allow_origins     = ["*"]
     allow_methods     = ["POST"]
+    allow_headers     = ["date", "keep-alive", "content-type"]
+    expose_headers    = ["date", "keep-alive", "content-type"]
     max_age           = 86400
   }
 
