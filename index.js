@@ -20,23 +20,37 @@ module.exports.lambda_handler = async (event) => {
   const web3 = new Web3(
     new Web3.providers.HttpProvider(process.env.RPC_PROVIDER)
   );
-  const matching = await compileExtractCompare(
-    web3,
-    sources,
-    solcVersion,
-    contractName,
-    contractFilename,
-    contractAddress
-  );
-  console.log({ matching });
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        matching,
-      },
-      null,
-      2
-    ),
-  };
+  try {
+    const matching = await compileExtractCompare(
+      web3,
+      sources,
+      solcVersion,
+      contractName,
+      contractFilename,
+      contractAddress
+    );
+    console.log({ matching });
+    return {
+      statusCode: 200,
+      body: JSON.stringify(
+        {
+          matching,
+        },
+        null,
+        2
+      ),
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify(
+        {
+          error: error.message || "Unknown error",
+        },
+        null,
+        2
+      ),
+    };
+  }
 };
